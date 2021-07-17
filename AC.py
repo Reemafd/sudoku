@@ -23,3 +23,14 @@ That participate in consistent XIJ X
 				q.put((Xk, Xi))
 	#display(csp.values)
 	return True
+#working of the revise algorithm
+def Revise(csp, Xi, Xj):
+	revised = False
+	values = set(csp.values[Xi])
+
+	for x in values:
+		if not isconsistent(csp, x, Xi, Xj):
+			csp.values[Xi] = csp.values[Xi].replace(x, '')
+			revised = True 
+
+	return revised
